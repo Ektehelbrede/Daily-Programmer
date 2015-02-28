@@ -8,7 +8,6 @@
  */
 
 import java.text.DateFormat;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
@@ -27,11 +26,11 @@ public class DaysUntil
             int[] differences = new int[3];
 
             // Get the current date.
-            DateFormat dateFormat = new SimpleDateFormat("yyyy MM dd");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy,MM,dd");
             Date now = new Date();
             String date = dateFormat.format(now);
 
-            currentDateArray = date.split(" ");
+            currentDateArray = date.split(",");
 
             // Get the proposed date by either reading from args, or by prompting
             // the user to input a date.
@@ -42,10 +41,10 @@ public class DaysUntil
             } catch (IndexOutOfBoundsException e) {
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Please input a date in the form: " +
-                        "yyyy mm dd");
+                        "yyyy,mm,dd");
                 input = scanner.next();
 
-                proposedDateArray = input.split(" ");
+                proposedDateArray = input.split(",");
             }
 
             // Convert the proposed date and the current date to integer arrays, 
@@ -61,6 +60,8 @@ public class DaysUntil
             System.out.println("The difference between the current date and the proposed date" +
                     " is: " + differences[0] + " years, " + differences[1] + " months, " +
                     differences[2] + " days.");
+            System.out.println("This is approximately " + ((differences[0] * 365) + (differences[1] * 30) 
+                    + differences[2]) + " days.");
         }
         catch (Exception e)
         {

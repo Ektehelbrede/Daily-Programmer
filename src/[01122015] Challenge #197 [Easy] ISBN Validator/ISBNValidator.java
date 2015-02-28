@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  *  Determines if an ISBN Number is valid or not based on the definition of 
  *  a valid ISBN Number. The ISBN Number is first read from args[0], asking
@@ -8,6 +6,8 @@ import java.util.Scanner;
  *  @author Michael Mckee on 27/02/2015.
  *  @version 1.0
  */
+
+import java.util.Scanner;
 
 public class ISBNValidator 
 {

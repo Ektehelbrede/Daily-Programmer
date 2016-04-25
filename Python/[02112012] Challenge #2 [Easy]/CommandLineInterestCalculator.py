@@ -17,6 +17,7 @@ def compoundinterest(principal, interestRate, numberOfPeriods):
 if len(argv) != 5:
     print('Please pass all arguments using the command line. The type of interest can be compound or simple.')
     print('For example: python CommandLineInterestCalculator.py compound 1000 .10 5')
+    exit(1)
 
 if argv[1] == 'simple':
     print('The value of this investment would be (including the principal): ' +

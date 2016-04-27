@@ -4,7 +4,7 @@
 # V1.0 Take a command (encrypt / decrypt) and string from the command line and output the result ignoring (AS IN DON'T
 # INPUT THEM BECAUSE THEY WILL BREAK) case, numbers, symbols, and whitespace.
 
-# V2.0 ignores symbols and numbers (simply adds them to encrypted/decrypted string as-is, and handles upper and lower
+# V2.0 ignores symbols and numbers (simply adds them to encrypted/decrypted string as-is), and handles upper and lower
 # case properly. As this can be called from the command line, I've decided to ignore the whitespace problem as
 # the user may handle this by calling repeatedly for each string they wish to encode/decode.
 

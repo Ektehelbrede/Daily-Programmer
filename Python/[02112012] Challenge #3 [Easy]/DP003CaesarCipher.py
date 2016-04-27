@@ -4,31 +4,47 @@
 # V1.0 Take a command (encrypt / decrypt) and string from the command line and output the result ignoring (AS IN DON'T
 # INPUT THEM BECAUSE THEY WILL BREAK) case, numbers, symbols, and whitespace.
 
+# V2.0 ignores symbols and numbers (simply adds them to encrypted/decrypted string as-is, and handles upper and lower
+# case properly. As this can be called from the command line, I've decided to ignore the whitespace problem as
+# the user may handle this by calling repeatedly for each string they wish to encode/decode.
+
 from sys import argv
 
 
 def encrypt(inputString):
-    alphabetNormal = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
-                      'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    alphabetLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
+                     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
     outputString = ''
 
     for char in inputString:
-        index = alphabetNormal.index(char)
-        outputString += alphabetNormal[(index + 13) % 26]
+        if char in alphabetLower:
+            index = alphabetLower.index(char)
+            outputString += alphabetLower[(index + 13) % 26]
+        elif char.lower() in alphabetLower:
+            index = alphabetLower.index(char.lower())
+            outputString += alphabetLower[(index + 13) % 26].upper()
+        else:
+            outputString += char
 
     return outputString
 
 
 def decrypt(inputString):
-    alphabetNormal = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
-                      'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    alphabetLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
+                     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
     outputString = ''
 
     for char in inputString:
-        index = alphabetNormal.index(char)
-        outputString += alphabetNormal[(index + 13) % 26]
+        if char in alphabetLower:
+            index = alphabetLower.index(char)
+            outputString += alphabetLower[(index + 13) % 26]
+        elif char.lower() in alphabetLower:
+            index = alphabetLower.index(char.lower())
+            outputString += alphabetLower[(index + 13) % 26].upper()
+        else:
+            outputString += char
 
     return outputString
 
